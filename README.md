@@ -1,10 +1,21 @@
 # LINE WORKS API × 生成AI ハンズオン
 
-このリポジトリは、LINE WORKS APIと生成AI（Claude 3.7、OpenAI GPT-4、Anthropic Claude、Agent SDKなど）を組み合わせた実践的なユースケースを提供します。学術的・教育的な観点と実務的・実用的な観点の両方から、企業、教育機関、公共機関など幅広い分野でのビジネスデジタル変革を支援します。
+[![LINE WORKS API](https://img.shields.io/badge/LINE%20WORKS-API-00C300)](https://developers.worksmobile.com/jp/)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![Claude API](https://img.shields.io/badge/Claude-3.7-7D36EB)](https://www.anthropic.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+このリポジトリは、LINE WORKS APIと最新の生成AI技術（Claude 3.7、OpenAI GPT-4など）を連携させた実践的なユースケース集です。企業・組織のコミュニケーション改善とタスク自動化のための具体的な実装例を提供します。
 
 ## 概要
 
-LINE WORKS は企業向けコミュニケーションプラットフォームで、そのAPIを活用することで業務効率化や自動化が可能です。本リポジトリでは、最先端の生成AIと組み合わせることで、より高度で知的なワークフローを実現するサンプルコードと実装ガイドを提供します。
+LINE WORKS は企業向けコミュニケーションプラットフォームであり、そのAPIを活用することで社内連携の効率化やサービス自動化が可能になります。本リポジトリでは、基本的な機能実装から高度なAI連携まで、段階的に学べる構成になっています：
+
+- **基本機能実装**: LINE WORKS Bot APIの基本的な使い方（認証、メッセージ送受信、Webhook）
+- **生成AI活用**: Claude 3.7やGPT-4などの大規模言語モデルを活用した実用的なソリューション
+- **高度なAI連携**: マルチモーダル機能、RAG（検索拡張生成）、外部システムとの連携
+
+各ユースケースには、詳細な説明、実行手順、カスタマイズのヒントが含まれており、すぐに実際のビジネスに応用できます。
 
 ## ユースケース一覧
 
@@ -141,6 +152,21 @@ python main.py
 - 拡張性：自社環境に合わせてカスタマイズしやすい設計
 - 持続可能性：保守しやすく長期的に活用できる実装
 
+## トピック
+
+このリポジトリは以下のトピックに関連しています：
+
+- LINE WORKS API
+- チャットボット開発
+- 生成AI活用
+- 自然言語処理
+- カスタマーサポート自動化
+- ビジネスプロセス自動化
+- ワークフロー効率化
+- Python
+- Claude API
+- OpenAI API
+
 ## 貢献方法
 
 1. このリポジトリをフォーク
@@ -158,6 +184,14 @@ python main.py
 - LINE WORKS API ドキュメント
 - 各種生成AI提供企業（Anthropic、OpenAIなど）
 - コントリビューターの皆様
+
+## 参考リンク
+
+- [LINE WORKS Developer Console](https://developers.worksmobile.com/jp/console/)
+- [LINE WORKS API Reference](https://developers.worksmobile.com/jp/reference/)
+- [LINE WORKS Bot API Guide](https://developers.worksmobile.com/jp/document/)
+- [Anthropic Claude API](https://docs.anthropic.com/claude/reference/)
+- [OpenAI API](https://platform.openai.com/docs/api-reference)
 
 ---
 
