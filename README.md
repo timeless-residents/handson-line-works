@@ -15,8 +15,8 @@ LINE WORKS は企業向けコミュニケーションプラットフォームで
 | ID | ユースケース | 概要 | 対象領域 |
 |----|--------------|----|----------|
 | [000](showroom/usecase-000/) | LINE WORKS Bot 基本実装 | JWTを用いた認証と、LINE WORKS Bot APIを使ってメッセージを送信する基本実装 | 企業、教育機関 |
-| 001 | マルチモーダルメッセージ送信 | テキスト、画像、ファイルなど複数の形式でメッセージを送信 | 企業、教育機関 |
-| 002 | インタラクティブなボタン/アクション | ボタン付きメッセージやアクションを実装 | 企業、顧客サポート |
+| [001](showroom/usecase-001/) | マルチモーダルメッセージ送信 | テキスト、画像、ファイル、リンク、スタンプ、カルーセルなど複数の形式でメッセージを送信 | 企業、教育機関 |
+| [002](showroom/usecase-002/) | インタラクティブなボタン/アクション | ボタン付きメッセージやアクションの実装、コールバック処理、ngrokによるWebhook構成 | 企業、顧客サポート |
 | 003 | Webhook処理の実装 | ユーザーからのメッセージに自動応答する | 企業、カスタマーサービス |
 
 ### 生成AI活用（基本活用）
@@ -70,6 +70,7 @@ LINE WORKS は企業向けコミュニケーションプラットフォームで
 
 - Python 3.9以上
 - LINE WORKS アカウント（開発者向け）
+- LINE WORKS Bot の設定（Bot ID、チャンネル ID、サービスアカウント、JWT 認証用の秘密鍵）
 - 必要に応じて各種生成AIのAPIキー
 
 ### インストール
@@ -89,6 +90,9 @@ pip install -r requirements.txt
 # .envファイルの作成
 cp .env.example .env
 # .envファイルを編集して必要な環境変数を設定
+
+# 各ユースケースのディレクトリ内にある.env.exampleも、必要に応じてコピーして設定してください
+# 例: cd showroom/usecase-001 && cp .env.example .env
 ```
 
 ### 環境変数の設定
@@ -96,17 +100,23 @@ cp .env.example .env
 `.env`ファイルに以下の項目を設定します：
 
 ```
-LINE_WORKS_CLIENT_ID=your_client_id
-LINE_WORKS_CLIENT_SECRET=your_client_secret
-LINE_WORKS_SERVICE_ACCOUNT=your_service_account
-LINE_WORKS_BOT_NO=your_bot_id
-PRIVATE_KEY_PATH=path_to_your_private_key
-TEST_CHANNEL_ID=your_test_channel_id
+# LINE WORKS Bot API 認証情報
+LINE_WORKS_CLIENT_ID=your_client_id            # Developer Consoleで発行されたクライアントID
+LINE_WORKS_CLIENT_SECRET=your_client_secret    # Developer Consoleで発行されたクライアントシークレット
+LINE_WORKS_SERVICE_ACCOUNT=your_service_account # サービスアカウント (例: mybot@mycompany.com)
+LINE_WORKS_BOT_NO=your_bot_id                  # Bot番号 (数字のみ)
+PRIVATE_KEY_PATH=path_to_your_private_key      # 秘密鍵ファイルのパス
+TEST_CHANNEL_ID=your_test_channel_id           # テスト用チャンネルID
+
+# アセット関連の設定（必要に応じて）
+SAMPLE_IMAGE_PATH=path_to_sample_image.jpg     # サンプル画像のパス
 
 # 生成AI関連のAPI設定（必要に応じて）
 ANTHROPIC_API_KEY=your_anthropic_api_key
 OPENAI_API_KEY=your_openai_api_key
 ```
+
+各ユースケースに固有の環境変数については、それぞれのディレクトリ内の`.env.example`を参照してください。
 
 ## ユースケース実行方法
 
@@ -116,7 +126,13 @@ OPENAI_API_KEY=your_openai_api_key
 # 例: usecase-000の実行
 cd showroom/usecase-000
 python main.py
+
+# 例: usecase-001の実行
+cd showroom/usecase-001
+python main.py
 ```
+
+各ユースケースには独自のREADME.mdファイルがあり、詳細な説明と実行方法が記載されています。
 
 ## 開発方針
 
