@@ -65,8 +65,8 @@ class ClaudeClient:
             生成されたテキストとメタデータのタプル
         """
         try:
-            # メッセージリストを構築
-            formatted_messages = [{"role": "system", "content": system_prompt}]
+            # メッセージリストを構築 - システムプロンプトはトップレベルのパラメータとして渡す
+            formatted_messages = []
             for msg in messages:
                 if msg["role"] in ["user", "assistant"]:
                     formatted_messages.append(msg)
@@ -76,6 +76,7 @@ class ClaudeClient:
                 model=self.model,
                 max_tokens=self.max_tokens,
                 temperature=self.temperature,
+                system=system_prompt,  # システムプロンプトはトップレベルのパラメータ
                 messages=formatted_messages,
             )
 
